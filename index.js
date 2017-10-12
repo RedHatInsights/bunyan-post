@@ -23,7 +23,7 @@ BunyanPOST.prototype.write = function (record) {
     const self = this;
 
     return request({
-        url: self.host,
+        uri: self.host,
         method: 'POST',
         headers: self.headers || {},
         body: {
