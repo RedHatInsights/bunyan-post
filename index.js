@@ -26,7 +26,8 @@ BunyanPOST.prototype.write = function (record) {
         uri: self.host,
         method: 'POST',
         headers: self.headers || {},
-        json: {
+        json: true,
+        body: {
             message: record,
             host: self.host,
             env: self.env
