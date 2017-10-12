@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/fijshion/bunyan-post#readme",
   "dependencies": {
-    "request": "^2.83.0"
+    "request-promise": "^4.2.2"
   }
 }

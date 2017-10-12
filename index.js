@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('request');
+const requestP = require('request-promise');
 
 function BunyanPOST(options, error) {
     options = options || {};
@@ -22,7 +22,7 @@ function BunyanPOST(options, error) {
 BunyanPOST.prototype.write = function (record) {
     const self = this;
 
-    return request({
+    return requestP({
         uri: self.host,
         method: 'POST',
         headers: self.headers || {},
@@ -31,6 +31,8 @@ BunyanPOST.prototype.write = function (record) {
             host: self.host,
             env: self.env
         }
+    }).catch((error) => {
+        console.log(error);
     });
 };
 
