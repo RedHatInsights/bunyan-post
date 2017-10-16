@@ -14,23 +14,31 @@ function BunyanPOST(options, error) {
         this.headers = options.headers;
     }
 
-    if (options.env) {
-        this.env = options.env;
+    if (options.name) {
+        this.name = options.name;
     }
 }
 
 BunyanPOST.prototype.write = function (record) {
     const self = this;
 
+    let headers = {};
+    if (self.headers) {
+        headers = self.headers;
+        headers['Content-Type'] = 'application/json';
+    } else {
+        headers = {'Content-Type': 'application/json'};
+    }
+
     return requestP({
         uri: self.host,
         method: 'POST',
-        headers: self.headers || {},
+        headers: headers,
         json: true,
         body: {
-            message: record,
+            message: JSON.stringify(record),
             host: self.host,
-            env: self.env
+            name: self.name
         }
     }).catch((error) => {
         console.log(error);
