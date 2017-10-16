@@ -1,6 +1,6 @@
 {
   "name": "bunyan-post",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bunyan plugin to post logs to a server.",
   "main": "index.js",
   "scripts": {
