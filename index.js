@@ -70,8 +70,6 @@ BunyanPOST.prototype._writeLogs = function () {
     })
     .then(() => {
         this.queuedLogs = [];
-        const logEveryInterval = this._logEveryInterval.bind(this);
-        logEveryInterval();
     })
     .catch((error) => {
         console.log(error);
