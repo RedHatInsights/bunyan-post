@@ -1,8 +1,10 @@
 'use strict';
 
+const Writable = require('stream').Writable;
 const requestP = require('request-promise');
 
 function BunyanPOST(options, error) {
+    Writable.call(this, {objectMode: true});
     options = options || {};
     this.error = error || function () {};
 
