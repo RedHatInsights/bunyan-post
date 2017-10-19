@@ -33,10 +33,12 @@ function BunyanPOST(options, error) {
 BunyanPOST.prototype._logEveryInterval = function () {
     const writeLogsBound = this._writeLogs.bind(this);
     setTimeout(() => {
-        this.timerSet = true;
         if (this.queuedLogs.length > 0) {
             writeLogsBound();
         }
+
+        const logEveryInterval = this._logEveryInterval.bind(this);
+        logEveryInterval();
     }, this.interval);
 };
 
