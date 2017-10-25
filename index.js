@@ -45,8 +45,11 @@ BunyanPOST.prototype._logEveryInterval = function () {
 function joinLogs(logs) {
     let joinedLogs = '';
     logs.forEach((log) => {
-        const stringLog = JSON.stringify(log);
-        joinedLogs += stringLog + '\n';
+        try {
+            const stringLog = JSON.stringify(log);
+            joinedLogs += stringLog + '\n';
+        } catch (a) {
+        }
     });
 
     return joinedLogs;
